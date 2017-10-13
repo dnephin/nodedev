@@ -1,0 +1,18 @@
+
+meta:
+  project: node-dev-env
+
+mount=source:
+  bind: .
+  path: /work
+
+image=builder:
+  image: nodedev
+  context: .
+  dockerfile: Dockerfile
+
+job=shell:
+  use: builder
+  interactive: true
+  mounts: [source]
+  command: sh
